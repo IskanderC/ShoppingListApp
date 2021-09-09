@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ShoppingListApp.Services;
+using ShoppingListApp.Entities;
 
 namespace ShoppingListApp
 {
@@ -20,10 +22,15 @@ namespace ShoppingListApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        private IUserService _userService;
+        private IProductService _productService;
+
+
         public MainWindow()
         {
+            _userService = new UserService();
+            _productService = new ProductService();
             InitializeComponent();
         }
-
     }
 }
