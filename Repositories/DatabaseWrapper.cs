@@ -6,9 +6,9 @@ namespace ShoppingListApp.Repositories
 {
     public class DatabaseWrapper : IDatabaseWrapper
     {
-        readonly string connectionString = "Server= T5PT102; Database= AusyEmployee; Integrated Security=True;";
+        readonly string connectionString = "Server= DESKTOP-7MGC06P\\LOKI; Database= ShoppingList; Integrated Security=True;";
 
-        public DataTable GetQueryResult(string Query)
+        public DataTable Query(string sql)
         {
             DataTable tbl = new DataTable();
 
@@ -16,7 +16,7 @@ namespace ShoppingListApp.Repositories
             {
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    SqlCommand cmd = new SqlCommand(Query, connection);
+                    SqlCommand cmd = new SqlCommand(sql, connection);
                     connection.Open();
 
                     // create data adapter
@@ -35,22 +35,22 @@ namespace ShoppingListApp.Repositories
             return tbl;
         }
 
-        public void UpdateDB(string InsertQuery)
+        public void Command(string sql)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlCommand command = new SqlCommand(InsertQuery, connection);
+                SqlCommand command = new SqlCommand(sql, connection);
                 command.Connection.Open();
                 command.ExecuteNonQuery();
             }
         }
 
-        public object GetValueFromDB(string Query)
+        public object GetScalar(string sql)
         {
             object obj = null;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlCommand command = new SqlCommand(Query, connection);
+                SqlCommand command = new SqlCommand(sql, connection);
                 command.Connection.Open();
                 obj = command.ExecuteScalar();
             }

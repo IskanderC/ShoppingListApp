@@ -31,6 +31,41 @@ namespace ShoppingListApp
             _userService = new UserService();
             _productService = new ProductService();
             InitializeComponent();
+
+
+            //var blabla = _productService.GetById(1);
+
+            //var product = new Product
+            //{
+            //    Bought = true,
+            //    Name = "Bulan",
+            //    Quantity = 3,
+            //    UserId = 1
+            //};
+
+            //_productService.Create(product);
+
+            //var blabla = _productService.GetAll(1);
+
+            //var product = new Product
+            //{
+            //    Bought = false,
+            //    Name = "GIGICU",
+            //    Quantity = 666,
+            //    UserId = 1
+            //};
+            //_productService.Update(1, product);
+
+            //_productService.Delete(2);
+
+            ////_productservice.markasbought(1);
+            ///
+          
+
+            var blabla =_userService.Login("dacu", "nunu");
+
+            
+            var x = 2;
         }
     }
 }

@@ -8,42 +8,51 @@ using ShoppingListApp.Repositories;
 
 namespace ShoppingListApp.Services
 {
+    // if there is some processing logic involved, process it
+    // if there is no logic, just call the method in repository
     public class ProductService : IProductService
     {
-        private IProductRepository _respository;
+        private IProductRepository _repository;
 
         public ProductService()
         {
-            _respository = new ProductRepository();
+            _repository = new ProductRepository();
         }
         public void Create(Product product)
         {
-            throw new NotImplementedException();
+            _repository.Create(product);
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            _repository.Delete(id);
         }
 
         public List<Product> GetAll(int userId)
         {
-            throw new NotImplementedException();
+           List<Product> products = _repository.GetAll(userId);
+
+            return products;
         }
 
         public Product GetById(int id)
         {
-            throw new NotImplementedException();
+            Product product = _repository.GetById(id);
+
+            return product;
         }
 
         public void MarkAsBought(int id)
         {
-            throw new NotImplementedException();
+            Product product = GetById(id);
+            product.Bought = true;
+
+            Update(id, product);
         }
 
         public void Update(int id, Product product)
         {
-            throw new NotImplementedException();
+            _repository.Update(id, product);
         }
     }
 }

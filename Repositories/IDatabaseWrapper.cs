@@ -10,8 +10,8 @@ namespace ShoppingListApp.Repositories
 {
     public interface IDatabaseWrapper
     {
-        DataTable GetQueryResult(string Query);
-        void UpdateDB(string InsertQuery);
-        object GetValueFromDB(string Query);
+        DataTable Query(string sql);
+        void Command(string sql);
+        object GetScalar(string sql);
     }
 }
