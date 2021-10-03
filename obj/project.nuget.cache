@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "MFH+6cS2ngVNpQnSWxtFIiOB44Qxva0c2FnjbblWVz4PJnCgt2ItfoSN/tb1VpH4PAxVQmWeZnQVHUkM5TfWLw==",
+  "dgSpecHash": "uxDut9JdYXlf2EYAQCqcC+sGiKiZkY3gfESdNlNwY4tpOD8rRSwh7j/bCXuPNETLrDkIeAQmYndQMTJZhYYlaw==",
   "success": true,
   "projectFilePath": "D:\\Projects\\ShoppingListApp\\ShoppingListApp.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Biciu\\.nuget\\packages\\materialdesigncolors\\2.0.3\\materialdesigncolors.2.0.3.nupkg.sha512",
+    "C:\\Users\\Biciu\\.nuget\\packages\\materialdesignthemes\\4.2.1\\materialdesignthemes.4.2.1.nupkg.sha512",
     "C:\\Users\\Biciu\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Biciu\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\Biciu\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.7.0\\runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",

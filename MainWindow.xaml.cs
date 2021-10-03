@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ShoppingListApp.Services;
 using ShoppingListApp.Entities;
+using System.Collections.ObjectModel;
 
 namespace ShoppingListApp
 {
@@ -21,9 +22,12 @@ namespace ShoppingListApp
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
-    {
+    {   
         private IUserService _userService;
         private IProductService _productService;
+
+        public ObservableCollection<Product> ProductsToBuy { get; set; }
+        public ObservableCollection<Product> BoughtProducts { get; set; }
 
 
         public MainWindow()
@@ -31,41 +35,48 @@ namespace ShoppingListApp
             _userService = new UserService();
             _productService = new ProductService();
             InitializeComponent();
+            DataContext = this;
+
+            InitProducts();
+            //RahatTabControl.ItemsSource = ProductsToBuy;
 
 
-            //var blabla = _productService.GetById(1);
 
-            //var product = new Product
-            //{
-            //    Bought = true,
-            //    Name = "Bulan",
-            //    Quantity = 3,
-            //    UserId = 1
-            //};
-
-            //_productService.Create(product);
-
-            //var blabla = _productService.GetAll(1);
-
-            //var product = new Product
-            //{
-            //    Bought = false,
-            //    Name = "GIGICU",
-            //    Quantity = 666,
-            //    UserId = 1
-            //};
-            //_productService.Update(1, product);
-
-            //_productService.Delete(2);
-
-            ////_productservice.markasbought(1);
-            ///
-          
-
-            var blabla =_userService.Login("dacu", "nunu");
-
-            
             var x = 2;
+        }
+
+        private void RemoveButton_Clicked(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("mue");
+        }
+
+        private void InitProducts()
+        {
+            //TODO change when implementing login
+            List<Product> products = _productService.GetAll(1);
+
+            List<Product> productsToBuy = products
+                .Where(product => product.Bought == false)  
+                .ToList();
+
+            List<Product> boughtProducts = products
+                .Where(product => product.Bought)
+                .ToList();
+
+            ProductsToBuy = GetParsedProducts(productsToBuy);
+            BoughtProducts = GetParsedProducts(boughtProducts);
+        }
+
+        private ObservableCollection<Product> GetParsedProducts(List<Product> products)
+        {
+            ObservableCollection<Product> productsToReturn = new ObservableCollection<Product>();
+
+            foreach (var product in products)
+            {
+                productsToReturn.Add(product);
+            }
+
+            return productsToReturn;
         }
     }
 }

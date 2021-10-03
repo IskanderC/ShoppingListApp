@@ -27,3 +27,6 @@ D:\Projects\ShoppingListApp\obj\Debug\net5.0-windows\ShoppingListApp.dll
 D:\Projects\ShoppingListApp\obj\Debug\net5.0-windows\ref\ShoppingListApp.dll
 D:\Projects\ShoppingListApp\obj\Debug\net5.0-windows\ShoppingListApp.pdb
 D:\Projects\ShoppingListApp\obj\Debug\net5.0-windows\ShoppingListApp.genruntimeconfig.cache
+D:\Projects\ShoppingListApp\bin\Debug\net5.0-windows\MaterialDesignColors.dll
+D:\Projects\ShoppingListApp\bin\Debug\net5.0-windows\MaterialDesignThemes.Wpf.dll
+D:\Projects\ShoppingListApp\obj\Debug\net5.0-windows\App.baml
