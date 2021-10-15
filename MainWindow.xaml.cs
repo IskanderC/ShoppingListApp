@@ -26,8 +26,8 @@ namespace ShoppingListApp
         private IUserService _userService;
         private IProductService _productService;
 
-        public ObservableCollection<Product> ProductsToBuy { get; set; }
-        public ObservableCollection<Product> BoughtProducts { get; set; }
+        public List<Product> ProductsToBuy { get; set; }
+        public List<Product> BoughtProducts { get; set; }
 
 
         public MainWindow()
@@ -35,10 +35,8 @@ namespace ShoppingListApp
             _userService = new UserService();
             _productService = new ProductService();
             InitializeComponent();
-            DataContext = this;
 
             InitProducts();
-            //RahatTabControl.ItemsSource = ProductsToBuy;
 
 
 
@@ -47,7 +45,22 @@ namespace ShoppingListApp
 
         private void RemoveButton_Clicked(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("mue");
+            var button = sender as Button;
+            var tag = button.Tag.ToString();
+
+            Product product;
+
+            if (tag == "fromToBuy")
+            {
+                product = (Product)DatagridProductsToBuy.SelectedItem;
+            }
+            else 
+            {
+                product = (Product)DatagridBoughtProducts.SelectedItem;
+            }
+
+            _productService.Delete(product.Id);
+            InitProducts();
         }
 
         private void InitProducts()
@@ -55,28 +68,34 @@ namespace ShoppingListApp
             //TODO change when implementing login
             List<Product> products = _productService.GetAll(1);
 
-            List<Product> productsToBuy = products
+            ProductsToBuy = products
                 .Where(product => product.Bought == false)  
                 .ToList();
 
-            List<Product> boughtProducts = products
+            BoughtProducts = products
                 .Where(product => product.Bought)
                 .ToList();
 
-            ProductsToBuy = GetParsedProducts(productsToBuy);
-            BoughtProducts = GetParsedProducts(boughtProducts);
+            DatagridProductsToBuy.ItemsSource = ProductsToBuy;
+            DatagridBoughtProducts.ItemsSource = BoughtProducts;
         }
 
-        private ObservableCollection<Product> GetParsedProducts(List<Product> products)
+
+        protected void OnWindowSizeChanged(object sender, RoutedEventArgs e)
         {
-            ObservableCollection<Product> productsToReturn = new ObservableCollection<Product>();
-
-            foreach (var product in products)
-            {
-                productsToReturn.Add(product);
-            }
-
-            return productsToReturn;
+            DataGrid dataGrid = sender as DataGrid;
+            ResizeGrids(dataGrid);
         }
+
+        private void ResizeGrids(DataGrid dataGrid)
+        {
+            //dataGrid.Width = e.NewSize.Width - (e.NewSize.Width * .1);
+
+            foreach (var column in dataGrid.Columns)
+            {
+                column.Width = dataGrid.ActualWidth / dataGrid.Columns.Count;
+            }
+        }
+
     }
 }
