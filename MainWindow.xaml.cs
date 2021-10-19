@@ -63,7 +63,7 @@ namespace ShoppingListApp
             InitProducts();
         }
 
-        private void InitProducts()
+        public void InitProducts()
         {
             //TODO change when implementing login
             List<Product> products = _productService.GetAll(1);
@@ -97,5 +97,10 @@ namespace ShoppingListApp
             }
         }
 
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            AddWindow addWindow = new AddWindow(1, this);
+            addWindow.Show();
+        }
     }
 }

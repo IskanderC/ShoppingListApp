@@ -30,3 +30,5 @@ D:\Projects\ShoppingListApp\obj\Debug\net5.0-windows\ShoppingListApp.genruntimec
 D:\Projects\ShoppingListApp\bin\Debug\net5.0-windows\MaterialDesignColors.dll
 D:\Projects\ShoppingListApp\bin\Debug\net5.0-windows\MaterialDesignThemes.Wpf.dll
 D:\Projects\ShoppingListApp\obj\Debug\net5.0-windows\App.baml
+D:\Projects\ShoppingListApp\obj\Debug\net5.0-windows\AddWindow.g.cs
+D:\Projects\ShoppingListApp\obj\Debug\net5.0-windows\AddWindow.baml

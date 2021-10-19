@@ -7,14 +7,14 @@
         xmlns:local="clr-namespace:ShoppingListApp"
         mc:Ignorable="d"
         Title="Shopping.lisT" Height="750" Width="1300" FontFamily="Roboto">
-    
+
     <Grid Background="Purple">
-        
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        
+
         <Grid.RowDefinitions>
             <RowDefinition Height="0.1*"/>
             <RowDefinition Height="*"/>
@@ -42,7 +42,7 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                
+
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -52,7 +52,7 @@
 
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
-            
+
         </DataGrid>
         <DataGrid Grid.Row="1" Grid.Column="1" x:Name ="DatagridBoughtProducts" AutoGenerateColumns="False" CanUserAddRows="False" SizeChanged="OnWindowSizeChanged">
             <DataGrid.Columns>
@@ -68,5 +68,8 @@
             </DataGrid.Columns>
 
         </DataGrid>
+        <Button x:Name="AddButton" Click="AddButton_Click" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="1"
+              FontSize="29" Height="41" Width="64">+</Button>
     </Grid>
+
 </Window>
