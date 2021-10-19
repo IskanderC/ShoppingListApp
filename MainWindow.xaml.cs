@@ -102,5 +102,13 @@ namespace ShoppingListApp
             AddWindow addWindow = new AddWindow(1, this);
             addWindow.Show();
         }
+
+        private void MarkAsBought_Click(object sender, RoutedEventArgs e)
+        {
+           var product = (Product)DatagridProductsToBuy.SelectedItem;
+            _productService.MarkAsBought(product.Id);
+
+            InitProducts();
+        }
     }
 }

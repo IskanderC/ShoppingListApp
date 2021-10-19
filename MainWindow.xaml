@@ -46,7 +46,7 @@
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Width="120px">Set as bought</Button>
+                            <Button x:Name="MarkAsBought" Click="MarkAsBought_Click" Width="120px">Set as bought</Button>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
 
